@@ -1,5 +1,7 @@
 SELECT comments.contents, users.username 
-FROM comments JOIN users on users.id=comments.user_id WHERE comments.photo_id=3;
+FROM comments 
+JOIN users on users.id=comments.user_id 
+WHERE comments.photo_id=3;
 
 
 SELECT AVG(count_comment) AS average_comment
