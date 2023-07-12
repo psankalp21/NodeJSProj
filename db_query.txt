@@ -1,0 +1,17 @@
+SELECT AVG(count_comment) AS average_comment
+FROM (
+  SELECT COUNT(*) AS count_comment
+  FROM comments
+  GROUP BY photo_id
+) QUERY;
+
+
+
+SELECT MAX(CommentCount) FROM
+(
+SELECT   COUNT(Comments.photo_id) as CommentCount 
+FROM Photos 
+LEFT JOIN Comments on Photos.id = Comments.Photo_id 
+GROUP BY Photos.id 
+ORDER BY CommentCount DESC 
+)QUERY;
