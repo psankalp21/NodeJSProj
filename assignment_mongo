@@ -1,0 +1,120 @@
+Assignment – MongoDB 
+
+Schema: 
+
+
+user_collection
+{
+  "user_id": "user_id",
+  "username": "user123",
+  "email": "user@xyz.com",
+  "password": "pwd",
+  "name": "XYZ",
+  "createdAt": "DATE & TIME"
+}
+
+
+
+session_collection
+{
+  "session_id": "session_id",
+  "userId": "user_id",
+  "token": "session_token",
+  "expiresAt": ("date")
+ 
+}
+
+
+
+post_collection
+{
+  "post_id":"post_id",
+  "userId": "user_id",
+  "content": "XYZ123",
+  "createdAt": "DATE & TIME",
+  "actions": [
+    {
+      "userId":"user_id",
+      "comment_Id":"comment_id",
+      "type": "comment",
+      "content": " comment xyz",
+      "createdAt": "DATE & TIME"
+    },
+    {
+      "userId":"user_id",
+      "type": "like",
+      "createdAt": "DATE & TIME"
+    }
+  ]
+}
+
+
+
+
+____________________________________________________________________________________________________________________________
+
+Queries
+
+// db.mongo_user.insertMany([
+//   {
+//     name: "Rahul",
+//     about: {
+//       age: 22,
+//       hobbies: ["Chess", "Reading"],
+//       address: "Noida",
+//       phone: "998877"
+//     }
+//   },
+//   {
+//     name: "Abhishek",
+//     about: {
+//       age: 28,
+//       hobbies: ["Painting", "Gaming"],
+//       address: "Mumbai",
+//       phone: "665544"
+//     }
+//   },
+//   {
+//     name: "Amit",
+//     about: {
+//       age: 35,
+//       hobbies: ["Reading", "Traveling"],
+//       address: "Delhi",
+//       phone: "332211"
+//     }
+//   }
+// ])
+
+
+// db.mongo_user.updateOne(
+//   { name: "Rahul" },
+//   { $push: { "about.hobbies": "Writing" } }
+// )
+
+
+
+// db.mongo_user.find({})
+
+// db.mongo_user.updateOne(
+//   { name: "Abhishek" },
+//   { $pull: { "about.hobbies": "Gaming" } }
+// )
+
+// db.mongo_user.updateOne( { name:"Rahul"}, { $pullAll: { "about.hobbies": [ "chess" ] } } )
+
+// db.mongo_user.updateOne(
+//   { name: "Rahul" },
+//   { $pullAll: { "about.hobbies": ["Chess"] } }
+// )
+
+// db.mongo_user.find({
+//   about: {
+//     $elemMatch: {
+//       age: { $gt: 20 }
+//     }
+//   }
+// })
+
+// db.mongo_user.find({
+//   "about.address": { $exists: true }
+// })
